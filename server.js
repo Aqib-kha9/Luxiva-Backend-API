@@ -5,9 +5,17 @@ import userRouter from "./Routes/user.js";
 import productRouter from "./Routes/product.js";
 import cartRouter from "./Routes/cart.js";
 import addressRouter from "./Routes/address.js";
+import reviewRouter from "./Routes/review.js";
+import productBannerRouter from "./Routes/productBanner.js";
+import saleProductRouter from "./Routes/saleProduct.js";
+import testimonialRouter from "./Routes/testimonial.js";
+import newsLetter from "./Routes/newsletter.js";
 import cors from "cors";
 
+
+
 const app = express();
+app.use(express.json());
 app.use(bodyParser.json());
 
 app.use(cors({
@@ -27,11 +35,30 @@ app.use("/api/user",userRouter);
 // product Router
 app.use("/api/product",productRouter);
 
+// Product Banner
+
+app.use("/api/product/banner",productBannerRouter);
+
+// Product Banner
+
+app.use("/api/product/sale",saleProductRouter);
+
+// Testimonial Router
+
+app.use("/api/product/testimonial",testimonialRouter);
+
+// News Letter Router
+
+app.use("/api/newsletter",newsLetter);
+
 // Cart Router
 app.use("/api/cart",cartRouter);
 
 // Address Router
 app.use("/api/address",addressRouter);
+
+// Review Router
+app.use("/api/product",reviewRouter);
 
 const port = 8080;
 

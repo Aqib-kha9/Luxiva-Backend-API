@@ -2,9 +2,9 @@ import { Product } from "../Models/Product.js";
 
 // addProduct
 export const addProduct = async(req,res)=> {
-    const {title,description,price,category,qty,imgSrc} = req.body;
+    const {title,description,price,category,qty,imgSrc,oldPrice,percentOff,size,paymentMethod,color,warranty,productType,shortDescription,returnPolicy} = req.body;
     try {
-        let product = await Product.create({title,description,price,category,qty,imgSrc});
+        let product = await Product.create({title,description,price,category,qty,imgSrc,oldPrice,percentOff,size,paymentMethod,color,warranty,productType,shortDescription,returnPolicy});
         console.log(product);
         res.json({message:"Product added Successfully....",product});
     } catch (error) {
