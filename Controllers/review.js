@@ -8,14 +8,14 @@ import { get } from "mongoose";
 export const createReview = async (req, res) => {
   try {
     let product = await Product.findById(req.params.id);
-    // console.log(product);
+    console.log(product);
     const { comment, rating, imgSrc, name } = req.body;
     let newReview = new Review({ comment, rating, imgSrc, name });
     newReview.author = req.user._id;
-    // console.log(product.reviews)
+    console.log(product.reviews)
     product.reviews.push(newReview);
     await newReview.save();
-    // console.log(newReview);
+    console.log(newReview);
     await product.save();
     res.json({ message: "New review added", success: true });
   } catch (error) {
